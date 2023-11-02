@@ -21,14 +21,14 @@ document.addEventListener('DOMContentLoaded', (event) => {
             log('Requesting Bluetooth Device...');
             const device = await navigator.bluetooth.requestDevice({
                 filters: [{ services: ['battery_service'] }],
-                optionalServices: ['your_gan_cube_service_id']
+                optionalServices: ['f95a48e6-a721-11e9-a2a3-022ae2dbcce4']
             });
 
             log('Connecting to GAN Cube...');
             const server = await device.gatt.connect();
 
             log('Getting GAN Cube Service...');
-            const service = await server.getPrimaryService('your_gan_cube_service_id');
+            const service = await server.getPrimaryService('f95a48e6-a721-11e9-a2a3-022ae2dbcce4');
 
             log('Getting Characteristic...');
             const characteristic = await service.getCharacteristic('your_gan_cube_characteristic_id');
